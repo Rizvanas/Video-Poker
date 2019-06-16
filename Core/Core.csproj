@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Application\Builders\PokerDeckBuilder.cs" />
     <Compile Include="Application\Evaluators\PokerHandEvaluator.cs" />
+    <Compile Include="Application\Extensions\EvaluatorExtensions.cs" />
     <Compile Include="Application\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Application\Interfaces\IDeckBuilder.cs" />
     <Compile Include="Application\Interfaces\IHandEvaluator.cs" />

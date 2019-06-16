@@ -1,8 +1,8 @@
 ﻿
 using Core.Domain.Models;
 using Core.Domain.Enumerations;
-using Core.Interfaces;
-using Core.Extensions;
+using Core.Application.Interfaces;
+using Core.Application.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

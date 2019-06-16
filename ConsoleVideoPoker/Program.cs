@@ -1,4 +1,5 @@
 ﻿using Core.Builders;
+using Core.Evaluators;
 using System;
 
 namespace ConsoleVideoPoker
@@ -7,10 +8,11 @@ namespace ConsoleVideoPoker
     {
         static void Main(string[] args)
         {
-            var gameHandler = new GameHandler(new PokerDeckBuilder(new Random()));
-            gameHandler.Run();
+            var deckBuilder = new PokerDeckBuilder(new Random());
+            var handEvaluator = new PokerHandEvaluator();
+            var gameHandler = new GameHandler(deckBuilder, handEvaluator);
 
-            Console.WriteLine("Hello World!");
+            gameHandler.Run();
         }
     }
 }

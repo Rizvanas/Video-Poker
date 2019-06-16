@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Domain.Models;
 
-namespace Core.Interfaces
+namespace Core.Application.Interfaces
 {
     public interface IDeckBuilder
     {

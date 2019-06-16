@@ -10,6 +10,6 @@ namespace Core.Application.Interfaces
 {
     public interface IHandEvaluator
     {
-        HandValue EvaluateHand(Hand hand);
+        HandValue EvaluateHand(List<Card> hand);
     }
 }

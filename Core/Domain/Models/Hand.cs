@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Domain.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,6 @@ namespace Core.Domain.Models
     {
         public List<Card> Cards { get; set; }
         public int Size { get; set; }
-        public int Value { get; set; }
+        public HandValue Value { get; set; }
     }
 }

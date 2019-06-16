@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Domain.Enumerations;
+using Core.Domain.Models;
 
-namespace Core.Extensions
+namespace Core.Application.Extensions
 {
     public static class IEnumerableExtensions
     {
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> src, Random rng)
         {
-            T[] elements = src.ToArray();
-            for (var i = elements.Length - 1; i >= 0; i--)
+            T[] elems = src.ToArray();
+            for (var i = elems.Length - 1; i >= 0; i--)
             {
                 int swapIndex = rng.Next(i + 1);
-                yield return elements[swapIndex];
-                elements[swapIndex] = elements[i];
+                yield return elems[swapIndex];
+                elems[swapIndex] = elems[i];
             }
         }
     }
