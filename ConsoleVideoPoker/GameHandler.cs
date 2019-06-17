@@ -29,7 +29,7 @@ namespace ConsoleVideoPoker
             _run = true;
             _shouldDeal = true;
             _show = false;
-            _coins = 1;
+            _coins = 100;
 
             _deck = _deckBuilder.BuildDeck();
             _currentSelection = _deck.Take(5).ToList();
