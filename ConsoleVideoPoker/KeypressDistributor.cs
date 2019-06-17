@@ -4,12 +4,8 @@ using System.Text;
 
 namespace ConsoleVideoPoker
 {
-    public class ConsoleKeyEventArgs : EventArgs
-    {
-        public ConsoleKey Key { get; set; }
-    }
 
-    class KeypressDistributor
+    public class KeypressDistributor
     {
         private ConsoleKeyInfo _keyInfo;
         public event EventHandler<ConsoleKeyEventArgs> KeyPressed;

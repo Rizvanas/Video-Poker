@@ -27,7 +27,7 @@ namespace Core.Evaluators
                 case 3: return GetThreeOrFullHouse(cardRanksGrouped);
                 case 2: return GetPairOrJackOrOther(cardRanksGrouped);
                 case 1: return GetSomeFlushOrStraigth(cards);
-                default: return HandValue.ALL_OTHER;
+                default: return HandValue.NOTHING;
             }
         }
 
@@ -47,7 +47,7 @@ namespace Core.Evaluators
             if (cardRanks.ContainsJacksOrBetter())
                 return HandValue.JACKS_OR_BETTER;
 
-            return HandValue.ALL_OTHER; 
+            return HandValue.NOTHING; 
         }
 
         private HandValue GetSomeFlushOrStraigth(IEnumerable<Card> cards)
@@ -63,7 +63,7 @@ namespace Core.Evaluators
             if (cards.AllSuitsMatch())
                 return HandValue.FLUSH;
 
-            return HandValue.ALL_OTHER;
+            return HandValue.NOTHING;
         }
 
         private HandValue GetStraightOrRoyalFlush(IEnumerable<Card> cards)

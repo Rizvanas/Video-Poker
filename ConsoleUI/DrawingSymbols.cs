@@ -15,5 +15,9 @@ namespace ConsoleUI
         public static readonly string BOTTOM_LEFT_CORNER = "╚";
         public static readonly string BOTTOM_RIGHT_CORNER = "╝";
         public static readonly string EMPTY_LINE = " ";
+        public static readonly string SPADE ="♠";
+        public static readonly string HEART = "♥";
+        public static readonly string DIAMOND = "♦";
+        public static readonly string CLUB = "♣";
     }
 }

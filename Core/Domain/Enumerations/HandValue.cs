@@ -17,6 +17,6 @@ namespace Core.Domain.Enumerations
         THREE_OF_A_KIND = 3,
         TWO_PAIR = 2,
         JACKS_OR_BETTER = 1,
-        ALL_OTHER = 0
+        NOTHING = 0
     }
 }
