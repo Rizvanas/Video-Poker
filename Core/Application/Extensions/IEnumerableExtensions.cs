@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Domain.Enumerations;
-using Core.Domain.Models;
 
 namespace Core.Application.Extensions
 {

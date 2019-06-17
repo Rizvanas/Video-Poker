@@ -1,10 +1,8 @@
-﻿
-using Core.Domain.Models;
+﻿using Core.Domain.Models;
 using Core.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using ConsoleUI.Drawers;
 
 namespace ConsoleVideoPoker
@@ -29,35 +27,45 @@ namespace ConsoleVideoPoker
             _handEvaluator = handEvaluator;
             _painter = painter;
             _run = true;
+            _shouldDeal = true;
+            _show = false;
+            _coins = 1;
 
             _deck = _deckBuilder.BuildDeck();
             _currentSelection = _deck.Take(5).ToList();
             _deck.RemoveRange(0, 5);
             _currentHand = UpdateCurrentHand();
-            _shouldDeal = true;
-            _show = false;
-            _coins = 100;
         }
 
         public bool Run()
         {
             _painter.Paint(_currentHand, _shouldDeal, _show, _coins);
-            _run = _coins != 0;
             return _run;
         }
 
         public void OnKeyPressed(object source, ConsoleKeyEventArgs args)
         {
+            if (args.Key == ConsoleKey.Escape)
+                _run = false;
+
+            if (_coins == 0 && args.Key == ConsoleKey.Spacebar)
+            {
+                _shouldDeal = true;
+                _show = false;
+                _coins = 100;
+                args.Key = ConsoleKey.NoName;
+            }
+
             if (_shouldDeal)
             {
                 if (args.Key == ConsoleKey.Spacebar)
-                    Deal();
+                    DealCards();
             } else
             {
                 switch (args.Key)
                 {
                     case ConsoleKey.Spacebar:
-                        Draw();
+                        DrawCards();
                         break;
                     case ConsoleKey.D1:
                         _currentSelection[0].IsSelected = !_currentSelection[0].IsSelected;
@@ -74,16 +82,13 @@ namespace ConsoleVideoPoker
                     case ConsoleKey.D5:
                         _currentSelection[4].IsSelected = !_currentSelection[4].IsSelected;
                         break;
-                    case ConsoleKey.Escape:
-                        _run = false;
-                        break;
                     default:
                         break;
                 }
             }
         }
         
-        public void Deal()
+        private void DealCards()
         {
             _deck = _deckBuilder.BuildDeck();
             _currentSelection = _deck.Take(5).ToList();
@@ -93,7 +98,7 @@ namespace ConsoleVideoPoker
             _show = true;
         }
 
-        public void Draw()
+        private void DrawCards()
         {
             for(var i = 0; i < _currentSelection.Count; i++)
             {
@@ -104,16 +109,11 @@ namespace ConsoleVideoPoker
                 }
             }
             _currentHand = UpdateCurrentHand();
-
-            if (_currentHand.Value != 0)
-                _coins += (int)_currentHand.Value;
-            else
-                _coins--;
-            
+            CalculateCoins();
             _shouldDeal = !_shouldDeal;
         }
 
-        public Hand UpdateCurrentHand()
+        private Hand UpdateCurrentHand()
         {
             return new Hand
             {
@@ -121,6 +121,14 @@ namespace ConsoleVideoPoker
                 Value = _handEvaluator.EvaluateHand(_currentSelection),
                 Size = _currentSelection.Count
             };
+        }
+
+        private void CalculateCoins()
+        {
+            if (_currentHand.Value != 0)
+                _coins += (int)_currentHand.Value;
+            else
+                _coins--;
         }
     }
 }
