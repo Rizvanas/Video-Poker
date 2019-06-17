@@ -1,4 +1,5 @@
-﻿using Core.Builders;
+﻿using ConsoleUI.Drawers;
+using Core.Builders;
 using Core.Evaluators;
 using System;
 
@@ -8,11 +9,20 @@ namespace ConsoleVideoPoker
     {
         static void Main(string[] args)
         {
+            Console.WindowWidth = Console.LargestWindowWidth;
+            Console.WindowHeight = Console.LargestWindowHeight;
+
             var deckBuilder = new PokerDeckBuilder(new Random());
             var handEvaluator = new PokerHandEvaluator();
-            var gameHandler = new GameHandler(deckBuilder, handEvaluator);
+            var drawer = new VideoPokerPainter();
+            var gameHandler = new GameHandler(deckBuilder, handEvaluator, drawer);
+            var keypressDistributor = new KeypressDistributor();
+            keypressDistributor.KeyPressed += gameHandler.OnKeyPressed;
 
-            gameHandler.Run();
+            while (gameHandler.Run())
+            {
+                keypressDistributor.WaitForKeyPress();
+            }
         }
     }
 }

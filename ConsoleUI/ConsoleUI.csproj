@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleObjects\PokerCard.cs" />
+    <Compile Include="ConsoleObjects\Rectangle.cs" />
+    <Compile Include="ConsoleObjects\TextBox.cs" />
+    <Compile Include="Drawers\VideoPokerPainter.cs" />
+    <Compile Include="DrawingSymbols.cs" />
+    <Compile Include="Interfaces\IDrawable.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{7B64380C-F4C6-4931-BEB7-A1C09153EB54}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
