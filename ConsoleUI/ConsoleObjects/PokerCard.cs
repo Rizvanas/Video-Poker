@@ -1,4 +1,5 @@
-﻿using Core.Domain.Enumerations;
+﻿using ConsoleUI.Enumerations;
+using Core.Domain.Enumerations;
 using Core.Domain.Models;
 using System;
 

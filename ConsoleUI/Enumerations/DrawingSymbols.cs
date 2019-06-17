@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleUI
+namespace ConsoleUI.Enumerations
 {
     public static class DrawingSymbols
     {

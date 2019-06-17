@@ -45,9 +45,9 @@
     <Compile Include="ConsoleObjects\Rectangle.cs" />
     <Compile Include="ConsoleObjects\TextBox.cs" />
     <Compile Include="Drawers\VideoPokerPainter.cs" />
-    <Compile Include="DrawingSymbols.cs" />
+    <Compile Include="Enumerations\DrawingSymbols.cs" />
     <Compile Include="Interfaces\IDrawable.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="Enumerations\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +56,6 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enumerations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

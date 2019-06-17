@@ -1,4 +1,5 @@
 ﻿using ConsoleUI.ConsoleObjects;
+using ConsoleUI.Enumerations;
 using Core.Domain.Models;
 using System;
 using System.Text;
