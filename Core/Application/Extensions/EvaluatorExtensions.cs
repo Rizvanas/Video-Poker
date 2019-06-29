@@ -48,5 +48,10 @@ namespace Core.Application.Extensions
             var cardRanks = cards.Select(c => c.Rank);
             return cardRanks.Contains(CardRank.ACE);
         }
+
+        public static void DoStuff(this IEnumerable<Card> cards)
+        {
+            System.Console.WriteLine(cards.FirstOrDefault(c => c.Suit == CardSuit.CLUB));
+        }
     }
 }
